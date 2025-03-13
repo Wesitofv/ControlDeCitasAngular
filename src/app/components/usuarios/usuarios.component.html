@@ -1,0 +1,38 @@
+<div class="container my-4">
+  <h2>Listado de Usuarios</h2>
+  <button class="btn btn-primary mb-3" (click)="openCreateModal()">Crear Nuevo Usuario</button>
+
+  <div *ngIf="errorMessage" class="alert alert-danger">
+    {{ errorMessage }}
+  </div>
+
+  <table class="table table-bordered table-hover table-striped">
+    <thead class="table-dark">
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Email</th>
+        <th>Password</th>
+        <th>Confirmado</th>
+        <th>Rol ID</th>
+        <th>Activo</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let usuario of usuarios">
+        <td>{{ usuario.id }}</td>
+        <td>{{ usuario.nombre }}</td>
+        <td>{{ usuario.email }}</td>
+        <td>{{ usuario.password }}</td>
+        <td>{{ usuario.confirmado ? 'Sí' : 'No' }}</td>
+        <td>{{ usuario.rolId }}</td>
+        <td>{{ usuario.activo ? 'Sí' : 'No' }}</td>
+        <td>
+          <button class="btn btn-warning btn-sm" title="Editar" (click)="openEditModal(usuario)"><i class="fa-solid fa-user-pen"></i></button>
+          <button class="btn btn-danger btn-sm" title="Borrar" (click)="deleteUsuario(usuario)"><i class="fa-solid fa-trash-can"></i></button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

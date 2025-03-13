@@ -1,0 +1,32 @@
+<div class="container my-4">
+  <h2>Listado de Roles</h2>
+  <button class="btn btn-primary mb-3" (click)="openCreateModal()">Crear Nuevo Rol</button>
+
+  <div *ngIf="errorMessage" class="alert alert-danger">
+    {{ errorMessage }}
+  </div>
+
+  <table class="table table-bordered table-hover table-striped" *ngIf="roles && roles.length > 0">
+    <thead class="table-dark">
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let role of roles">
+        <td>{{ role.id }}</td>
+        <td>{{ role.nombre }}</td>
+        <td>
+          <button class="btn btn-warning btn-sm" title="Editar" (click)="openEditModal(role)"><i class="fa-solid fa-user-pen"></i></button>
+          <button class="btn btn-danger btn-sm" title="Borrar" (click)="deleteRole(role)"><i class="fa-solid fa-trash-can"></i></button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="roles && roles.length === 0">
+    No se encontraron roles.
+  </div>
+</div>

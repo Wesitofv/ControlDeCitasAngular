@@ -1,0 +1,38 @@
+<div class="container my-4">
+  <h2>Listado de Citas</h2>
+  <button class="btn btn-primary mb-3" (click)="openCreateModal()">Crear Nueva Cita</button>
+
+  <div *ngIf="errorMessage" class="alert alert-danger">
+    {{ errorMessage }}
+  </div>
+
+  <table class="table table-bordered table-hover table-striped" *ngIf="citas && citas.length > 0">
+    <thead class="table-dark">
+      <tr>
+        <th>ID</th>
+        <th>Fecha y Hora</th>
+        <th>Cliente ID</th>
+        <th>Usuario ID</th>
+        <th>Activo</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cita of citas">
+        <td>{{ cita.id }}</td>
+        <td>{{ cita.fechaHora | date:'short' }}</td>
+        <td>{{ cita.clienteId }}</td>
+        <td>{{ cita.usuarioId }}</td>
+        <td>{{ cita.activo ? 'Sí' : 'No' }}</td>
+        <td>
+          <button class="btn btn-warning btn-sm" title="Editar" (click)="openEditModal(cita)"><i class="fa-solid fa-user-pen"></i></button>
+          <button class="btn btn-danger btn-sm" title="Borrar" (click)="deleteCita(cita)"><i class="fa-solid fa-trash-can"></i></button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="citas && citas.length === 0">
+    No se encontraron citas.
+  </div>
+</div>

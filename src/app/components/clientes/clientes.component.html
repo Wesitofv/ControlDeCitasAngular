@@ -1,0 +1,36 @@
+<div class="container my-4">
+  <h2>Listado de Clientes</h2>
+  <button class="btn btn-primary mb-3" (click)="openCreateModal()">Crear Nuevo Cliente</button>
+
+  <div *ngIf="errorMessage" class="alert alert-danger">
+    {{ errorMessage }}
+  </div>
+
+  <table class="table table-bordered table-hover table-striped">
+    <thead class="table-dark">
+      <tr>
+        <th>ID</th>
+        <th>Usuario ID</th>
+        <th>Nombre</th>
+        <th>Email</th>
+        <th>Teléfono</th>
+        <th>Activo</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cliente of clientes">
+        <td>{{ cliente.id }}</td>
+        <td>{{ cliente.usuarioId }}</td>
+        <td>{{ cliente.nombre }}</td>
+        <td>{{ cliente.email }}</td>
+        <td>{{ cliente.telefono }}</td>
+        <td>{{ cliente.activo ? 'Sí' : 'No' }}</td>
+        <td>
+          <button class="btn btn-warning btn-sm" title="Editar" (click)="openEditModal(cliente)"><i class="fa-solid fa-user-pen"></i></button>
+          <button class="btn btn-danger btn-sm" title="Borrar" (click)="deleteCliente(cliente)"><i class="fa-solid fa-trash-can"></i></button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+

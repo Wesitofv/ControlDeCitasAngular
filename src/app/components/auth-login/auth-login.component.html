@@ -1,0 +1,45 @@
+<!-- <div class="modal-header">
+  <h4 class="modal-title">Iniciar Sesión</h4>
+</div>
+<div class="modal-body">
+  <form>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input type="email" id="email" class="form-control" [(ngModel)]="loginData.email" name="email" required>
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">Contraseña</label>
+      <input type="password" id="password" class="form-control" [(ngModel)]="loginData.password" name="password" required>
+    </div>
+    <div *ngIf="errorMessage" class="alert alert-danger">
+      {{ errorMessage }}
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-primary" (click)="login()">Iniciar Sesión</button>
+</div>
+-->
+
+<div class="modal-header">
+  <h4 class="modal-title">Iniciar Sesión</h4>
+  <!-- Sin botón de cierre para forzar el login -->
+</div>
+<div class="modal-body">
+  <form>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input type="email" id="email" class="form-control" [(ngModel)]="loginData.email" name="email" required>
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">Contraseña</label>
+      <input type="password" id="password" class="form-control" [(ngModel)]="loginData.password" name="password" required>
+    </div>
+    <div *ngIf="errorMessage" class="alert alert-danger">
+      {{ errorMessage }}
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-primary" (click)="login()">Iniciar Sesión</button>
+</div>

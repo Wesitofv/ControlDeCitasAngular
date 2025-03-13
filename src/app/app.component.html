@@ -1,0 +1,48 @@
+<!-- Contenedor principal para el fondo de mármol -->
+<div class="marble-background">
+  <!-- Barra superior que funciona como “búsqueda” con esquinas redondeadas -->
+  <header class="navbar-marble">
+    <!-- Logo y nombre de la página en la esquina izquierda -->
+    <div class="navbar-left">
+      <div class="logo-box">
+        <img src="https://i.gifer.com/yuJ.gif" alt="Logo" class="logo-img">
+      </div>
+      <span class="page-title">Angular Citas Api</span>
+    </div>
+    <!-- Botones en el centro -->
+    <div class="navbar-center">
+      <div ngbDropdown class="d-inline-block me-2">
+        <button class="btn btn-black dropdown-toggle" id="catalogoDropdown" ngbDropdownToggle>
+          Catálogo
+        </button>
+        <ul ngbDropdownMenu class="dropdown-menu-custom" aria-labelledby="catalogoDropdown">
+          <li><a class="dropdown-item" routerLink="/clientes">Clientes</a></li>
+          <li><a class="dropdown-item" routerLink="/usuarios">Usuarios</a></li>
+        </ul>
+      </div>
+
+      <div ngbDropdown class="d-inline-block me-2">
+        <button class="btn btn-black dropdown-toggle" id="agendarDropdown" ngbDropdownToggle>
+          Agendar
+        </button>
+        <ul ngbDropdownMenu class="dropdown-menu-custom" aria-labelledby="agendarDropdown">
+          <li><a class="dropdown-item" routerLink="/citas">Citas</a></li>
+          <li><a class="dropdown-item" routerLink="/calendario">Calendario</a></li>
+        </ul>
+      </div>
+      <!-- <button class="nav-btn" routerLink="/citas">Cita</button> -->
+      <button class="nav-btn" routerLink="/roles">Roles</button>
+    </div>
+    <!-- Botones en la esquina derecha -->
+    <div class="navbar-right">
+      <button class="auth-btn" routerLink="/register">Registrarse</button>
+      <button class="auth-btn" routerLink="/login">Iniciar Sesión</button>
+    </div>
+  </header>
+  <!-- Aquí puedes poner tu contenido, tablas, etc. -->
+  <div class="content container">
+    <h1>Edicion De Tablas</h1>
+    <router-outlet></router-outlet>
+  </div>
+</div>
+

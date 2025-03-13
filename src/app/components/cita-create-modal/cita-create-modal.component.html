@@ -1,0 +1,27 @@
+<div class="modal-header">
+  <h4 class="modal-title">Crear Nueva Cita</h4>
+  <button type="button" class="btn-close" aria-label="Close" (click)="closeModal()"></button>
+</div>
+<div class="modal-body">
+  <form>
+    <div class="mb-3">
+      <label for="fechaHora" class="form-label">Fecha y Hora</label>
+      <input type="datetime-local" id="fechaHora" class="form-control" [(ngModel)]="nuevoCita.fechaHora" name="fechaHora" required>
+    </div>
+    <div class="mb-3">
+      <label for="clienteId" class="form-label">Cliente ID</label>
+      <input type="text" id="clienteId" class="form-control" [(ngModel)]="nuevoCita.clienteId" name="clienteId" required>
+    </div>
+    <div class="mb-3">
+      <label for="usuarioId" class="form-label">Usuario ID</label>
+      <input type="text" id="usuarioId" class="form-control" [(ngModel)]="nuevoCita.usuarioId" name="usuarioId" required>
+    </div>
+    <div *ngIf="errorMessage" class="alert alert-danger">
+      {{ errorMessage }}
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" (click)="cancel()">Cancelar</button>
+  <button type="button" class="btn btn-primary" (click)="createCita()">Crear Cita</button>
+</div>
