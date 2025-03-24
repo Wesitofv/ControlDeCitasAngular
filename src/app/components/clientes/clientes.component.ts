@@ -38,6 +38,7 @@ export class ClientesComponent implements OnInit {
     });
   }
 
+
   openCreateModal(): void {
     const modalRef = this.modalService.open(ClienteCreateModalComponent, { centered: true });
     modalRef.result.then(

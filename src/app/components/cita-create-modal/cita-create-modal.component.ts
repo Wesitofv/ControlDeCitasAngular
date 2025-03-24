@@ -15,7 +15,8 @@ export class CitaCreateModalComponent {
   nuevoCita = {
     fechaHora: '',  // En formato ISO o compatible con date input
     clienteId: '',
-    usuarioId: ''
+    usuarioId: '',
+    email:'',
   };
 
   errorMessage: string = '';

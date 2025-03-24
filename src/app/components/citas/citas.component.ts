@@ -4,6 +4,7 @@ import { CitaService, Cita } from './../../../../src/app/services/cita.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CitaCreateModalComponent } from '../cita-create-modal/cita-create-modal.component';
 import { CitaEditModalComponent } from '../cita-edit-modal/cita-edit-modal.component';
+import { ClienteService } from '../../services/cliente.service';
 
 @Component({
   selector: 'app-citas',
@@ -34,6 +35,7 @@ export class CitasComponent implements OnInit {
       }
     });
   }
+
 
   openCreateModal(): void {
     const modalRef = this.modalService.open(CitaCreateModalComponent, { centered: true });

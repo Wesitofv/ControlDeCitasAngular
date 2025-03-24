@@ -8,6 +8,9 @@ export interface Cita {
   clienteId: string;
   usuarioId: string;
   activo: boolean;
+  nombreCliente: string;
+  emailCliente: string;
+  createdDate: string;
 }
 
 @Injectable({

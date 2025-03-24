@@ -17,7 +17,8 @@ export class ClienteCreateModalComponent {
     nombre: '',
     telefono: '',
     email: '',
-    usuarioId: ''
+    usuarioId: '',
+    nombrecliente:'',
   };
 
   errorMessage: string = '';

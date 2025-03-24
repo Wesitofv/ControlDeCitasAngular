@@ -1,4 +1,10 @@
 <div class="container my-4">
-  <h2>Calendario de Citas</h2>
+  <div class="calendar-header d-flex justify-content-between align-items-center mb-3">
+    <h2 class="text-dark">Calendario de Citas</h2>
+    <!-- Botón para crear nueva cita -->
+    <button class="btn btn-dark" (click)="openCreateModal()">
+      <i class="fas fa-plus me-2"></i> Crear Nueva Cita
+    </button>
+  </div>
   <full-calendar [options]="calendarOptions"></full-calendar>
 </div>

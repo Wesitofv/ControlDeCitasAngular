@@ -11,6 +11,8 @@
       <tr>
         <th>ID</th>
         <th>Fecha y Hora</th>
+        <th>Nombre Cliente</th>
+        <th>Correo</th>
         <th>Cliente ID</th>
         <th>Usuario ID</th>
         <th>Activo</th>
@@ -21,6 +23,8 @@
       <tr *ngFor="let cita of citas">
         <td>{{ cita.id }}</td>
         <td>{{ cita.fechaHora | date:'short' }}</td>
+        <td>{{ cita.nombreCliente }}</td>
+        <td>{{ cita.emailCliente }}</td>
         <td>{{ cita.clienteId }}</td>
         <td>{{ cita.usuarioId }}</td>
         <td>{{ cita.activo ? 'Sí' : 'No' }}</td>

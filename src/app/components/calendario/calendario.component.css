@@ -1,0 +1,79 @@
+/* Estilos generales para el calendario */
+.fc {
+  /* Color de fondo general (donde se pinta el calendario) */
+  background-color: #f5f5f5;
+  /* Fuente y color base */
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+/* Barra de herramientas (botones de navegación, títulos) */
+.fc-toolbar.fc-header-toolbar {
+  background-color: #000; /* Barra negra */
+  padding: 0.5rem;
+  .fc-toolbar-chunk {
+    display: flex;
+    align-items: center;
+  }
+  .fc-toolbar-title {
+    color: #fff;
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+}
+
+/* Botones de la barra de herramientas */
+.fc .fc-button {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  margin: 0 2px;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+}
+.fc .fc-button:hover {
+  background-color: #555;
+}
+.fc .fc-button:active,
+.fc .fc-button:focus {
+  background-color: #000;
+}
+
+/* Celdas de los días */
+.fc-daygrid-day {
+  border: 1px solid #ddd;
+}
+.fc-daygrid-day-top {
+  font-size: 0.85rem;
+  padding: 0.3rem;
+  color: #666;
+}
+
+/* Eventos en el calendario (vista dayGrid) */
+.fc-daygrid-event {
+  background-color: #000; /* Fondo negro */
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 2px 4px;
+  font-size: 0.75rem;
+  transition: background-color 0.3s ease;
+}
+.fc-daygrid-event:hover {
+  background-color: #333;
+}
+
+/* Vista de mes (para celdas vacías, hover, etc.) */
+.fc-daygrid-day-frame {
+  transition: background-color 0.2s ease;
+}
+.fc-daygrid-day-frame:hover {
+  background-color: #eee;
+}
+
+/* Ajustar tamaño de la cabecera */
+.fc-daygrid-day-number {
+  font-size: 0.85rem;
+  color: #333;
+}
