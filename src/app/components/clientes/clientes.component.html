@@ -1,6 +1,13 @@
 <div class="container my-4">
   <h2>Listado de Clientes</h2>
-  <button class="btn btn-primary mb-3" (click)="openCreateModal()">Crear Nuevo Cliente</button>
+  <button class="btn btn-primary mb-2" (click)="openCreateModal()">Crear Nuevo Cliente</button>
+
+
+
+  <button class="btn btn-success" (click)="buscarCumpleanos(3)">
+    Buscar Cumpleañeros (Marzo)
+  </button>
+
 
   <div *ngIf="errorMessage" class="alert alert-danger">
     {{ errorMessage }}
@@ -10,10 +17,11 @@
     <thead class="table-dark">
       <tr>
         <th>ID</th>
-        <th>Usuario ID</th>
         <th>Nombre</th>
         <th>Email</th>
         <th>Teléfono</th>
+        <th>Fecha Cumple</th>
+        <th>Cumpleaños</th>
         <th>Activo</th>
         <th>Acciones</th>
       </tr>
@@ -21,14 +29,18 @@
     <tbody>
       <tr *ngFor="let cliente of clientes">
         <td>{{ cliente.id }}</td>
-        <td>{{ cliente.usuarioId }}</td>
         <td>{{ cliente.nombre }}</td>
         <td>{{ cliente.email }}</td>
         <td>{{ cliente.telefono }}</td>
+        <td>{{ cliente.fechaCumple | date:'dd/MM/yyyy' }}</td>
+        <i *ngIf="getCumpleIcon(cliente.fechaCumple)" [class]="getCumpleIcon(cliente.fechaCumple)"></i>
         <td>{{ cliente.activo ? 'Sí' : 'No' }}</td>
         <td>
-          <button class="btn btn-warning btn-sm" title="Editar" (click)="openEditModal(cliente)"><i class="fa-solid fa-user-pen"></i></button>
-          <button class="btn btn-danger btn-sm" title="Borrar" (click)="deleteCliente(cliente)"><i class="fa-solid fa-trash-can"></i></button>
+          <button class="btn btn-warning btn-sm" (click)="openEditModal(cliente)">Editar</button>
+          <button class="btn btn-danger btn-sm" (click)="deleteCliente(cliente.id)">Eliminar</button>
+          <button class="btn btn-primary btn-sm" [routerLink]="['/clientes', cliente.id]">
+            Ver Perfil
+          </button>
         </td>
       </tr>
     </tbody>

@@ -1,113 +1,49 @@
-<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-black py-3">
-  <div class="container">
-    <div ngbDropdown class="d-inline-block">
-      <button class="btn btn-outline-light dropdown-toggle" id="menuDropdown" ngbDropdownToggle>
-        <i class="fas fa-bars me-2"></i> Menú
+<!-- Condicional: mostrar navbar y sidebar solo si no es login -->
+<ng-container *ngIf="!isLogin">
+  <!-- Navbar principal -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-black py-3">
+    <div class="container d-flex justify-content-between align-items-center">
+      <!-- Botón de menú en la esquina izquierda -->
+      <button class="menu-btn" (click)="toggleSidebar()">
+        <i class="fas fa-bars me-2"></i> Menu
       </button>
-      <ul ngbDropdownMenu aria-labelledby="menuDropdown" class="dropdown-menu-custom">
-        <li>
-          <a class="dropdown-item" routerLink="/roles">
-            <i class="fas fa-user-tag me-2"></i> Roles
-          </a>
-        </li>
-        <li>
-          <a class="dropdown-item" routerLink="/usuarios">
-            <i class="fas fa-users me-2"></i> Usuarios
-          </a>
-        </li>
-        <li>
-          <a class="dropdown-item" routerLink="/clientes">
-            <i class="fas fa-user-tie me-2"></i> Clientes
-          </a>
-        </li>
-        <li>
-          <a class="dropdown-item" routerLink="/citas">
-            <i class="fas fa-calendar-check me-2"></i> Citas
-          </a>
-        </li>
-        <li>
-          <a class="dropdown-item" routerLink="/calendario">
-            <i class="fas fa-calendar-alt me-2"></i> Calendario
-          </a>
-        </li>
-      </ul>
+
+      <!-- Título o logo en el centro -->
+      <a class="navbar-brand mx-auto" routerLink="/">
+        ControlDeCitasApi
+      </a>
+
+      <!-- Botones en la esquina derecha -->
+      <div class="right-buttons">
+        <a class="btn btn-outline-light me-2" routerLink="/register">
+          <i class="fas fa-user-plus me-1"></i> Registrarse
+        </a>
+        <a class="btn btn-light" routerLink="/login">
+          <i class="fas fa-sign-in-alt me-1"></i> Iniciar Sesión
+        </a>
+      </div>
     </div>
+  </nav>
 
-    <a class="navbar-brand mx-auto" routerLink="/">
-      ControlDeCitasApi
-    </a>
-    <div>
-      <a class="btn btn-outline-light me-2" routerLink="/register">
-        <i class="fas fa-user-plus me-1"></i> Registrarse
-      </a>
-      <a class="btn btn-light" routerLink="/login">
-        <i class="fas fa-sign-in-alt me-1"></i> Iniciar Sesión
-      </a>
+  <!-- Sidebar -->
+  <div class="sidebar" [ngClass]="{'sidebar-open': sidebarOpen}">
+    <div class="sidebar-header">
+      <h2>Menú</h2>
+      <button class="close-btn" (click)="toggleSidebar()" title="Cerrar menú" aria-label="Cerrar menú">
+        <i class="fas fa-times"></i>
+      </button>
     </div>
+    <ul class="sidebar-list">
+      <li><a routerLink="/roles"><i class="fas fa-user-tag me-2"></i> Roles</a></li>
+      <li><a routerLink="/usuarios"><i class="fas fa-users me-2"></i> Usuarios</a></li>
+      <li><a routerLink="/clientes"><i class="fas fa-user-tie me-2"></i> Clientes</a></li>
+      <li><a routerLink="/citas"><i class="fas fa-calendar-check me-2"></i> Citas</a></li>
+      <li><a routerLink="/calendario"><i class="fas fa-calendar-alt me-2"></i> Calendario</a></li>
+    </ul>
   </div>
-</nav>
-<div class="container mt-4">
-  <router-outlet></router-outlet>
-</div>
--->
+</ng-container>
 
-
-<!-- Navbar principal -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-black py-3">
-  <div class="container d-flex justify-content-between align-items-center">
-    <!-- Botón de menú en la esquina izquierda -->
-    <button class="menu-btn" (click)="toggleSidebar()">
-      <i class="fas fa-bars me-2"></i> Menu
-    </button>
-
-    <!-- Título o logo (opcional) en el centro -->
-    <a class="navbar-brand mx-auto" routerLink="/">
-      ControlDeCitasApi
-    </a>
-
-    <!-- Botones en la esquina derecha -->
-    <div class="right-buttons">
-      <a class="btn btn-outline-light me-2" routerLink="/register">
-        <i class="fas fa-user-plus me-1"></i> Registrarse
-      </a>
-      <a class="btn btn-light" routerLink="/login">
-        <i class="fas fa-sign-in-alt me-1"></i> Iniciar Sesión
-      </a>
-    </div>
-  </div>
-</nav>
-
-<!-- Sidebar: se muestra u oculta al hacer clic en el botón de menú -->
-<div class="sidebar" [ngClass]="{'sidebar-open': sidebarOpen}">
-  <div class="sidebar-header">
-    <h2>Menú</h2>
-    <button class="close-btn" (click)="toggleSidebar()"
-    title="Cerrar menú"
-    aria-label="Cerrar menú">
-<i class="fas fa-times"></i>
-</button>
-  </div>
-  <ul class="sidebar-list">
-    <li>
-      <a routerLink="/roles"><i class="fas fa-user-tag me-2"></i> Roles</a>
-    </li>
-    <li>
-      <a routerLink="/usuarios"><i class="fas fa-users me-2"></i> Usuarios</a>
-    </li>
-    <li>
-      <a routerLink="/clientes"><i class="fas fa-user-tie me-2"></i> Clientes</a>
-    </li>
-    <li>
-      <a routerLink="/citas"><i class="fas fa-calendar-check me-2"></i> Citas</a>
-    </li>
-    <li>
-      <a routerLink="/calendario"><i class="fas fa-calendar-alt me-2"></i> Calendario</a>
-    </li>
-  </ul>
-</div>
-
-<!-- Contenido principal -->
+<!-- Contenido principal: se mostrará siempre -->
 <div class="main-content">
   <router-outlet></router-outlet>
 </div>
-

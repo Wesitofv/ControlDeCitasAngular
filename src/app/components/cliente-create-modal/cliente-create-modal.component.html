@@ -1,3 +1,56 @@
+<!-- <div class="modal-header">
+  <h4 class="modal-title">Crear Nuevo Cliente</h4>
+  <button type="button" class="btn-close" aria-label="Close" (click)="closeModal()"></button>
+</div>
+<div class="modal-body">
+  <form>
+    <div class="mb-3">
+      <label for="nombre" class="form-label">Nombre</label>
+      <input type="text" id="nombre" class="form-control" [(ngModel)]="nuevoCliente.nombre" name="nombre" required placeholder="Ingrese el nombre">
+    </div>
+    <div class="mb-3">
+      <label for="apellidos" class="form-label">Apellidos</label>
+      <input type="text" id="apellidos" class="form-control" [(ngModel)]="nuevoCliente.apellidos" name="apellidos" required placeholder="Ingrese los apellidos">
+    </div>
+    <div class="mb-3">
+      <label for="rol" class="form-label">Rol</label>
+      <input type="text" id="rol" class="form-control" [(ngModel)]="nuevoCliente.rol" name="rol" required placeholder="Ingrese el rol">
+    </div>
+    <div class="mb-3">
+      <label for="telefono" class="form-label">Teléfono</label>
+      <input type="text" id="telefono" class="form-control" [(ngModel)]="nuevoCliente.telefono" name="telefono" required placeholder="Ingrese el teléfono">
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input type="email" id="email" class="form-control" [(ngModel)]="nuevoCliente.email" name="email" required placeholder="Ingrese el correo electrónico">
+    </div>
+    <div class="mb-3">
+      <label for="usuarioId" class="form-label">Usuario ID</label>
+      <input type="text" id="usuarioId" class="form-control" [(ngModel)]="nuevoCliente.usuarioId" name="usuarioId" required placeholder="Ingrese el ID del usuario">
+    </div>
+    <div class="mb-3">
+      <label for="fechaCumple" class="form-label">Fecha de Cumpleaños</label>
+      <input type="date" id="fechaCumple" class="form-control" [(ngModel)]="nuevoCliente.fechaCumple" name="fechaCumple" required>
+    </div>
+    <div class="mb-3">
+      <label for="biografia" class="form-label">Biografía</label>
+      <textarea id="biografia" class="form-control" [(ngModel)]="nuevoCliente.biografia" name="biografia" placeholder="Ingrese una breve biografía"></textarea>
+    </div>
+    <div class="mb-3">
+      <label for="fotoPath" class="form-label">Foto (URL)</label>
+      <input type="text" id="fotoPath" class="form-control" [(ngModel)]="nuevoCliente.fotoPath" name="fotoPath" placeholder="Ingrese la URL de la foto">
+    </div>
+    <div *ngIf="errorMessage" class="alert alert-danger">
+      {{ errorMessage }}
+    </div>
+    <button type="submit" class="btn btn-primary">Crear Cliente</button>
+  </form>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" (click)="cancel()">Cancelar</button>
+  <button type="button" class="btn btn-primary" (click)="createCliente()">Crear Cliente</button>
+</div> -->
+
 <div class="modal-header">
   <h4 class="modal-title">Crear Nuevo Cliente</h4>
   <button type="button" class="btn-close" aria-label="Close" (click)="closeModal()"></button>
@@ -6,23 +59,44 @@
   <form>
     <div class="mb-3">
       <label for="nombre" class="form-label">Nombre</label>
-      <input type="text" id="nombre" class="form-control" [(ngModel)]="nuevoCliente.nombre" name="nombre" required>
+      <input type="text" id="nombre" class="form-control" [(ngModel)]="nuevoCliente.nombre" name="nombre" required placeholder="Ingrese el nombre">
+    </div>
+    <div class="mb-3">
+      <label for="apellidos" class="form-label">Apellidos</label>
+      <input type="text" id="apellidos" class="form-control" [(ngModel)]="nuevoCliente.apellidos" name="apellidos" required placeholder="Ingrese los apellidos">
+    </div>
+    <div class="mb-3">
+      <label for="rol" class="form-label">Rol</label>
+      <input type="text" id="rol" class="form-control" [(ngModel)]="nuevoCliente.rol" name="rol" required placeholder="Ingrese el rol">
     </div>
     <div class="mb-3">
       <label for="telefono" class="form-label">Teléfono</label>
-      <input type="text" id="telefono" class="form-control" [(ngModel)]="nuevoCliente.telefono" name="telefono">
+      <input type="text" id="telefono" class="form-control" [(ngModel)]="nuevoCliente.telefono" name="telefono" required placeholder="Ingrese el teléfono">
     </div>
     <div class="mb-3">
       <label for="email" class="form-label">Email</label>
-      <input type="email" id="email" class="form-control" [(ngModel)]="nuevoCliente.email" name="email" required>
+      <input type="email" id="email" class="form-control" [(ngModel)]="nuevoCliente.email" name="email" required placeholder="Ingrese el correo electrónico">
     </div>
     <div class="mb-3">
       <label for="usuarioId" class="form-label">Usuario ID</label>
-      <input type="text" id="usuarioId" class="form-control" [(ngModel)]="nuevoCliente.usuarioId" name="usuarioId" required>
+      <input type="text" id="usuarioId" class="form-control" [(ngModel)]="nuevoCliente.usuarioId" name="usuarioId" required placeholder="Ingrese el ID del usuario">
+    </div>
+    <div class="mb-3">
+      <label for="fechaCumple" class="form-label">Fecha de Cumpleaños</label>
+      <input type="date" id="fechaCumple" class="form-control" [(ngModel)]="nuevoCliente.fechaCumple" name="fechaCumple" required>
+    </div>
+    <div class="mb-3">
+      <label for="biografia" class="form-label">Biografía</label>
+      <textarea id="biografia" class="form-control" [(ngModel)]="nuevoCliente.biografia" name="biografia" placeholder="Ingrese una breve biografía"></textarea>
+    </div>
+    <div class="mb-3">
+      <label for="fotoPath" class="form-label">Foto (URL)</label>
+      <input type="text" id="fotoPath" class="form-control" [(ngModel)]="nuevoCliente.fotoPath" name="fotoPath" placeholder="Ingrese la URL de la foto">
     </div>
     <div *ngIf="errorMessage" class="alert alert-danger">
       {{ errorMessage }}
     </div>
+    <button type="submit" class="btn btn-primary">Crear Cliente</button>
   </form>
 </div>
 <div class="modal-footer">

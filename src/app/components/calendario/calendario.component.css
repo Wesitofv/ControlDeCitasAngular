@@ -1,15 +1,13 @@
-/* Estilos generales para el calendario */
+
 .fc {
-  /* Color de fondo general (donde se pinta el calendario) */
   background-color: #f5f5f5;
-  /* Fuente y color base */
   font-family: Arial, sans-serif;
   color: #333;
 }
 
-/* Barra de herramientas (botones de navegación, títulos) */
+
 .fc-toolbar.fc-header-toolbar {
-  background-color: #000; /* Barra negra */
+  background-color: #000;
   padding: 0.5rem;
   .fc-toolbar-chunk {
     display: flex;
@@ -22,7 +20,6 @@
   }
 }
 
-/* Botones de la barra de herramientas */
 .fc .fc-button {
   background-color: #333;
   color: #fff;
@@ -50,7 +47,6 @@
   color: #666;
 }
 
-/* Eventos en el calendario (vista dayGrid) */
 .fc-daygrid-event {
   background-color: #000; /* Fondo negro */
   color: #fff;

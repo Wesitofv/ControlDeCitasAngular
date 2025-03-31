@@ -18,8 +18,7 @@ export class UsuarioEditModalComponent implements OnInit {
   constructor(public activeModal: NgbActiveModal, private usuarioService: UsuarioService) {}
 
   ngOnInit(): void {
-    // Opcional: crear una copia para evitar mutar el objeto original
-    // this.usuario = { ...this.usuario };
+
   }
 
   updateUsuario(): void {

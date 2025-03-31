@@ -1,28 +1,3 @@
-/* Estilos para la tabla */
-/*table {
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
-  background-color: #fff;
-  margin: 20px 0;
-}
-
-thead {
-  background-color: #fff;
-  color: #000;
-}
-
-th, td {
-  border: 1px solid #000;
-  padding: 8px;
-  text-align: left;
-}
-
-tbody tr:nth-child(odd) {
-  background-color: #f9f9f9;
-}
-
-/* Estilos globales para el componente, con un fondo de página suave y tipografía limpia */
 :host {
   display: block;
   background-color: #f5f5f5;

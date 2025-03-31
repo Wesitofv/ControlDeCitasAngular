@@ -41,7 +41,7 @@ export class ClienteEditModalComponent implements OnInit {
 
   cancel(): void {
     this.activeModal.dismiss('cancel');
-  }
+}
 }
 
 

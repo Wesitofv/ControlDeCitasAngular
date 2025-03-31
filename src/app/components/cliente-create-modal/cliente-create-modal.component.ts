@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { ClienteService } from './../../services/cliente.service';
 import { CommonModule } from '@angular/common';
-import { FormsModule, NgModel } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-cliente-create-modal',
@@ -12,13 +12,17 @@ import { FormsModule, NgModel } from '@angular/forms';
   imports: [CommonModule, FormsModule]
 })
 export class ClienteCreateModalComponent {
-  // Modelo para el formulario
+  // Modelo para el formulario con todos los campos requeridos
   nuevoCliente = {
     nombre: '',
+    apellidos: '',
+    rol: '',
     telefono: '',
     email: '',
     usuarioId: '',
-    nombrecliente:'',
+    fechaCumple: '',
+    biografia: '',
+    fotoPath: ''
   };
 
   errorMessage: string = '';
@@ -28,7 +32,7 @@ export class ClienteCreateModalComponent {
     private clienteService: ClienteService
   ) {}
 
-  // Método para cerrar el modal (usado en la X)
+  // Método para cerrar el modal (X)
   closeModal(): void {
     this.activeModal.dismiss('closed');
   }
@@ -38,18 +42,30 @@ export class ClienteCreateModalComponent {
     this.activeModal.dismiss('cancel');
   }
 
-  // Método para crear el cliente (botón Crear Cliente)
+  // Método para crear el cliente
   createCliente(): void {
     // Validar que los campos obligatorios estén llenos
-    if (!this.nuevoCliente.nombre || !this.nuevoCliente.email || !this.nuevoCliente.usuarioId) {
-      this.errorMessage = 'Nombre, Email y UsuarioID son obligatorios.';
+    if (
+      !this.nuevoCliente.nombre ||
+      !this.nuevoCliente.apellidos ||
+      !this.nuevoCliente.rol ||
+      !this.nuevoCliente.email ||
+      !this.nuevoCliente.usuarioId ||
+      !this.nuevoCliente.fechaCumple
+    ) {
+      this.errorMessage = 'Todos los campos obligatorios deben estar completos.';
       return;
+    }
+
+    // Convertir la fecha a formato ISO para que la API la procese correctamente
+    if (this.nuevoCliente.fechaCumple) {
+      this.nuevoCliente.fechaCumple = new Date(this.nuevoCliente.fechaCumple).toISOString();
     }
 
     // Llamar al servicio para crear el cliente
     this.clienteService.createCliente(this.nuevoCliente).subscribe({
       next: (cliente) => {
-        // Si se crea exitosamente, cerramos el modal y retornamos el cliente creado
+        // Si se crea exitosamente, cerrar el modal y retornar el cliente creado
         this.activeModal.close(cliente);
       },
       error: (err) => {

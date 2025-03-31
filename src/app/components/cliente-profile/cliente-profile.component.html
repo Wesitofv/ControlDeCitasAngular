@@ -1,0 +1,60 @@
+<div class="profile-wrapper" *ngIf="cliente">
+  <div class="profile-card">
+    <!-- Lado Izquierdo: Foto y nombre -->
+    <div class="profile-left">
+      <img
+        [src]="cliente.fotoPath ? cliente.fotoPath : 'https://via.placeholder.com/250'"
+        alt="Foto del Cliente"
+        title="Foto del Cliente"
+        class="profile-photo"
+      />
+      <h2 class="profile-name">{{ cliente.nombre }} {{ cliente.apellidos }}</h2>
+      <button class="btn-update-photo" (click)="openPhotoUpload()">Actualizar Foto</button>
+    </div>
+
+    <!-- Lado Derecho: Formulario Editable de Información -->
+    <div class="profile-right">
+      <h3 class="profile-info-title">
+        <i class="fas fa-info-circle"></i> Información del Perfil
+      </h3>
+      <form (ngSubmit)="updateCliente()">
+        <div class="form-group mb-3">
+          <label for="nombre" class="form-label"><i class="fas fa-user"></i> Nombre</label>
+          <input type="text" id="nombre" class="form-control" [(ngModel)]="cliente.nombre" name="nombre" required />
+        </div>
+        <div class="form-group mb-3">
+          <label for="apellidos" class="form-label"><i class="fas fa-user"></i> Apellidos</label>
+          <input type="text" id="apellidos" class="form-control" [(ngModel)]="cliente.apellidos" name="apellidos" required />
+        </div>
+        <div class="form-group mb-3">
+          <label for="rol" class="form-label"><i class="fas fa-tag"></i> Rol</label>
+          <input type="text" id="rol" class="form-control" [(ngModel)]="cliente.rol" name="rol" required />
+        </div>
+        <div class="form-group mb-3">
+          <label for="email" class="form-label"><i class="fas fa-envelope"></i> Email</label>
+          <input type="email" id="email" class="form-control" [(ngModel)]="cliente.email" name="email" required />
+        </div>
+        <div class="form-group mb-3">
+          <label for="fechaCumple" class="form-label"><i class="fas fa-birthday-cake"></i> Fecha de Cumpleaños</label>
+          <input type="date" id="fechaCumple" class="form-control" [(ngModel)]="cliente.fechaCumple" name="fechaCumple" />
+        </div>
+        <div class="form-group mb-3">
+          <label for="biografia" class="form-label"><i class="fas fa-align-left"></i> Biografía</label>
+          <textarea id="biografia" class="form-control" [(ngModel)]="cliente.biografia" name="biografia"></textarea>
+        </div>
+        <div class="form-group mb-3">
+          <label for="id" class="form-label"><i class="fas fa-id-badge"></i> ID</label>
+          <input type="text" id="id" class="form-control" [value]="cliente.id" readonly />
+        </div>
+        <div class="profile-actions">
+          <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+          <button type="button" class="btn btn-secondary" (click)="cancel()">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="errorMessage" class="alert alert-danger">
+  {{ errorMessage }}
+</div>
