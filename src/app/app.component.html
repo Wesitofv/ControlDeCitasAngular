@@ -8,19 +8,26 @@
         <i class="fas fa-bars me-2"></i> Menu
       </button>
 
-      <!-- Título o logo en el centro -->
+      <!-- Título o logo (opcional) en el centro -->
       <a class="navbar-brand mx-auto" routerLink="/">
         ControlDeCitasApi
       </a>
 
-      <!-- Botones en la esquina derecha -->
+      <!-- Sección derecha: mostrar info de sesión si el usuario está logueado -->
       <div class="right-buttons">
-        <a class="btn btn-outline-light me-2" routerLink="/register">
-          <i class="fas fa-user-plus me-1"></i> Registrarse
-        </a>
-        <a class="btn btn-light" routerLink="/login">
-          <i class="fas fa-sign-in-alt me-1"></i> Iniciar Sesión
-        </a>
+        <ng-container *ngIf="authService.isLoggedIn(); else loginLinks">
+          <div class="logged-info text-white">
+            <i class="fas fa-user-check me-1"></i> {{ authService.getUserEmail() || 'Usuario' }}
+          </div>
+        </ng-container>
+        <ng-template #loginLinks>
+          <a class="btn btn-outline-light me-2" routerLink="/register">
+            <i class="fas fa-user-plus me-1"></i> Registrarse
+          </a>
+          <a class="btn btn-light" routerLink="/login">
+            <i class="fas fa-sign-in-alt me-1"></i> Iniciar Sesión
+          </a>
+        </ng-template>
       </div>
     </div>
   </nav>
